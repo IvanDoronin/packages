@@ -3,6 +3,7 @@ library value_objects;
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'src/value_failure.dart';
+import 'src/failure.dart';
 
 /// A (Validated) Value Object is a simple object that contains a single value that get's validated
 /// at instantiation. The goal of using VVO's is to makes illegal states unrepresentible, and
