@@ -10,13 +10,6 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
-## TO do
-- unit tests
-- failure messages/classes
-- account deletion logic
-- validation logic for value objects
-- widget collection (e.g. "Log in with Google" button, etc)
-
 
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
