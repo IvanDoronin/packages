@@ -16,12 +16,12 @@ class Email extends ValueObject<String> {
 
 
 /// Validation function
-/// TODO: email validation
 Either<ValueFailure<String>, String> _validateEmail(String value) {
-  if (value != null) {
+  final emailRegExp = RegExp("^[a-zA-Z0-9.!#\$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*\$");
+  if (emailRegExp.hasMatch(value)) {
     return right(value);
   } else {
-    return left(EmailValueFailure.invalidValue(value));
+    return left(EmailValueFailure.invalidFormat(value));
   }
 }
 
@@ -35,10 +35,10 @@ class EmailValueFailure extends ValueFailure<String> {
   @override
   final String message;
 
-  factory EmailValueFailure.invalidValue(String failedValue) {
+  factory EmailValueFailure.invalidFormat(String failedValue) {
     return EmailValueFailure._(
         failedValue: failedValue,
-        message: 'invalid value'
+        message: "The email must be of HTML5 spec"
     );
   }
 
