@@ -2,23 +2,15 @@ import 'package:value_objects/value_objects.dart';
 
 /// Value errors
 class AuthFailure extends Failure{
-  @override
-  final String message;
 
   factory AuthFailure.noConnection() {
-    return const AuthFailure._(
-        message: 'Not connected to the interent'
-    );
+    return const AuthFailure._();
   }
 
   factory AuthFailure.userDoesntExist() {
-    return const AuthFailure._(
-        message: 'User doesn\'t exist'
-    );
+    return const AuthFailure._( );
   }
 
-  const AuthFailure._({
-    required this.message
-  })
-  : super(message: message);
+  const AuthFailure._()
+  : super();
 }
