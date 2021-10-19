@@ -601,7 +601,7 @@ class _$AuthStateTearOff {
     return const _Loading();
   }
 
-  _Authenticated authenticated(UserEntity userEntity) {
+  _Authenticated authenticated(User userEntity) {
     return _Authenticated(
       userEntity,
     );
@@ -626,7 +626,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity userEntity) authenticated,
+    required TResult Function(User userEntity) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(AuthFailure failure) failure,
   }) =>
@@ -634,7 +634,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
   }) =>
@@ -642,7 +642,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
@@ -735,7 +735,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity userEntity) authenticated,
+    required TResult Function(User userEntity) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(AuthFailure failure) failure,
   }) {
@@ -746,7 +746,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
   }) {
@@ -757,7 +757,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
@@ -815,7 +815,7 @@ abstract class _$AuthenticatedCopyWith<$Res> {
   factory _$AuthenticatedCopyWith(
           _Authenticated value, $Res Function(_Authenticated) then) =
       __$AuthenticatedCopyWithImpl<$Res>;
-  $Res call({UserEntity userEntity});
+  $Res call({User userEntity});
 }
 
 /// @nodoc
@@ -836,7 +836,7 @@ class __$AuthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       userEntity == freezed
           ? _value.userEntity
           : userEntity // ignore: cast_nullable_to_non_nullable
-              as UserEntity,
+              as User,
     ));
   }
 }
@@ -847,7 +847,7 @@ class _$_Authenticated with DiagnosticableTreeMixin implements _Authenticated {
   const _$_Authenticated(this.userEntity);
 
   @override
-  final UserEntity userEntity;
+  final User userEntity;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -867,13 +867,12 @@ class _$_Authenticated with DiagnosticableTreeMixin implements _Authenticated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Authenticated &&
-            const DeepCollectionEquality()
-                .equals(other.userEntity, userEntity));
+            (identical(other.userEntity, userEntity) ||
+                other.userEntity == userEntity));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(userEntity));
+  int get hashCode => Object.hash(runtimeType, userEntity);
 
   @JsonKey(ignore: true)
   @override
@@ -884,7 +883,7 @@ class _$_Authenticated with DiagnosticableTreeMixin implements _Authenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity userEntity) authenticated,
+    required TResult Function(User userEntity) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(AuthFailure failure) failure,
   }) {
@@ -895,7 +894,7 @@ class _$_Authenticated with DiagnosticableTreeMixin implements _Authenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
   }) {
@@ -906,7 +905,7 @@ class _$_Authenticated with DiagnosticableTreeMixin implements _Authenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
@@ -956,9 +955,9 @@ class _$_Authenticated with DiagnosticableTreeMixin implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthState {
-  const factory _Authenticated(UserEntity userEntity) = _$_Authenticated;
+  const factory _Authenticated(User userEntity) = _$_Authenticated;
 
-  UserEntity get userEntity;
+  User get userEntity;
   @JsonKey(ignore: true)
   _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1013,7 +1012,7 @@ class _$_Unauthenticated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity userEntity) authenticated,
+    required TResult Function(User userEntity) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(AuthFailure failure) failure,
   }) {
@@ -1024,7 +1023,7 @@ class _$_Unauthenticated
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
   }) {
@@ -1035,7 +1034,7 @@ class _$_Unauthenticated
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
@@ -1158,7 +1157,7 @@ class _$_Failure with DiagnosticableTreeMixin implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity userEntity) authenticated,
+    required TResult Function(User userEntity) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(AuthFailure failure) failure,
   }) {
@@ -1169,7 +1168,7 @@ class _$_Failure with DiagnosticableTreeMixin implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
   }) {
@@ -1180,7 +1179,7 @@ class _$_Failure with DiagnosticableTreeMixin implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity userEntity)? authenticated,
+    TResult Function(User userEntity)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),

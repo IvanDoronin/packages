@@ -1,13 +1,10 @@
 import 'dart:async';
 import 'package:core_auth_kit/src/core/failures/auth_failures.dart';
-import 'package:core_auth_kit/src/domain/entities/user_entity.dart';
+import 'package:core_auth_kit/src/domain/entities/user.dart';
 import 'package:core_auth_kit/src/domain/use_cases/get_user_entity.dart';
 import 'package:core_auth_kit/src/domain/use_cases/is_logged_in.dart';
-import 'package:core_auth_kit/src/domain/use_cases/log_in_with_email_and_password.dart';
 import 'package:core_auth_kit/src/domain/use_cases/log_out.dart';
-import 'package:core_auth_kit/src/presentation/bloc/log_in_bloc/log_in_bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:equatable/equatable.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
