@@ -4,11 +4,11 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
 /// Create a user account via third party ID providers
-class LogInWithApple{
+class LogInWithAppleID{
 
   final AuthFacade _authFacade;
-  LogInWithApple({required AuthFacade authFacade}) :
+  LogInWithAppleID({required AuthFacade authFacade}) :
   _authFacade = authFacade;
 
-  Future<Either<AuthFailure, Unit>> call() async => _authFacade.logInWithApple();
+  Future<Either<AuthFailure, Unit>> call() async => _authFacade.logInWithAppleID();
 }
