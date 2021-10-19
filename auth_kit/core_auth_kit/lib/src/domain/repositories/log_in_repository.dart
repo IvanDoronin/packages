@@ -4,5 +4,5 @@ import 'package:dartz/dartz.dart';
 abstract class LogInRepository {
   Future<Either<AuthFailure, Unit>> logInWithGoogle();
   Future<Either<AuthFailure, Unit>> logInWithFacebook();
-  Future<Either<AuthFailure, Unit>> logInWithApple();
+  Future<Either<AuthFailure, Unit>> logInWithAppleID();
 }
