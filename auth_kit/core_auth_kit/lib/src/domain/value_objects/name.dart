@@ -32,19 +32,14 @@ class NameValueFailure extends ValueFailure<String> {
   @override
   final String failedValue;
 
-  @override
-  final String message;
-
   factory NameValueFailure.invalidValue(String failedValue) {
     return NameValueFailure._(
         failedValue: failedValue,
-        message: 'invalid value'
     );
   }
 
   const NameValueFailure._({
     required this.failedValue, 
-    required this.message
   })
-  : super(failedValue: failedValue, message: message);
+  : super(failedValue);
 }

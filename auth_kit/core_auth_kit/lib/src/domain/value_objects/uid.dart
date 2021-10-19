@@ -39,26 +39,20 @@ class UIDValueFailure extends ValueFailure<String> {
   @override
   final String failedValue;
 
-  @override
-  final String message;
-
   factory UIDValueFailure.empty(String failedValue) {
     return UIDValueFailure._(
         failedValue: failedValue,
-        message: 'UID can\'t be empty'
     );
   }
 
   factory UIDValueFailure.tooLong(String failedValue) {
     return UIDValueFailure._(
         failedValue: failedValue,
-        message: 'UID can\'t be over 128 characters long'
     );
   }
 
   const UIDValueFailure._({
     required this.failedValue, 
-    required this.message
   })
-  : super(failedValue: failedValue, message: message);
+  : super(failedValue);
 }

@@ -18,9 +18,20 @@ class Password extends ValueObject<String> {
 /// Validation function
 /// TODO: password validation
 Either<ValueFailure<String>, String> _validatePassword(String value) {
+  /// Password regexp
+  /// (?=.*[A-Z])       should contain at least one upper case
+  /// (?=.*[a-z])       should contain at least one lower case
+  /// (?=.*?[0-9])      should contain at least one digit
+  /// (?=.*?[!@#\$&*~]) should contain at least one Special character
+  /// .{8,}             Must be at least 8 characters in length
+  const String passwordPattern  = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+  final passwordRegExp = RegExp(passwordPattern);
+  // Correct format
   if (value != null) {
     return right(value);
-  } else {
+  }
+  // Incorrect format (one failure for each clause)
+  else {
     return left(PasswordValueFailure.invalidValue(value));
   }
 }
@@ -32,19 +43,14 @@ class PasswordValueFailure extends ValueFailure<String> {
   @override
   final String failedValue;
 
-  @override
-  final String message;
-
   factory PasswordValueFailure.invalidValue(String failedValue) {
     return PasswordValueFailure._(
         failedValue: failedValue,
-        message: 'invalid value'
     );
   }
 
   const PasswordValueFailure._({
     required this.failedValue, 
-    required this.message
   })
-  : super(failedValue: failedValue, message: message);
+  : super(failedValue);
 }
